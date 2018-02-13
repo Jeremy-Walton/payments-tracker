@@ -1,0 +1,3 @@
+class PaymentAccount < ApplicationRecord
+  
+end
