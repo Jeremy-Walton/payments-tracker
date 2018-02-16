@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title Payments Tracker
+    meta name='viewport' content ='width=device-width,initial-scale=1,user-scalable=yes'
+    = csrf_meta_tags
+    = stylesheet_link_tag 'application', media: 'all'
+    = javascript_pack_tag 'application'
+
+  body
+    nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      = link_to 'Payments Tracker', root_url, class: 'navbar-brand'
+      button.navbar-toggler type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'
+        span.navbar-toggler-icon
+      .collapse.navbar-collapse#navbarNavAltMarkup
+        .navbar-nav.mr-auto
+          = link_to root_url, class: 'nav-item nav-link active' do
+            | Home
+            span.sr-only< (current)
+          = link_to 'Accounts', payment_accounts_url, class: 'nav-item nav-link'
+        span.navbar-text Account Info here
+
+    = yield
