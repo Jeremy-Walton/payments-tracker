@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20180212235658) do
   enable_extension "plpgsql"
 
   create_table "payment_accounts", force: :cascade do |t|
-    t.string "type"
+    t.string "account_type"
     t.string "name"
     t.integer "amount"
     t.integer "day"

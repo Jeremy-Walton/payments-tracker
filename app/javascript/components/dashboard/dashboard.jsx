@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
     return (
       <div>
         <h1>Dashboard</h1>
-        <a href='/payment_accounts/new'>Create Payment Account</a>
+        <a className='btn btn-success' href='/payment_accounts/new' role='button'>Create Payment Account</a>
       </div>
     );
   }
