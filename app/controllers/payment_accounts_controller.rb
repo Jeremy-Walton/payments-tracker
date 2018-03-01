@@ -8,12 +8,30 @@ class PaymentAccountsController < ApplicationController
     @payment_account = PaymentAccount.new
   end
 
+  def edit
+    @payment_account = PaymentAccount.find(params[:id])
+  end
+
   def create
     @payment_account = PaymentAccount.new(payment_account_params)
     if @payment_account.save
+      flash[:success] = 'Account Created'
       redirect_to payment_accounts_url
     else
+      flash[:error] = 'Error: See below'
       render :new
+    end
+  end
+
+  def update
+    @payment_account = PaymentAccount.find(params[:id])
+
+    if @payment_account.update(payment_account_params)
+      flash[:success] = 'Updated'
+      redirect_to edit_payment_account_url(@payment_account)
+    else
+      flash[:error] = 'Error: See below'
+      render :edit
     end
   end
 

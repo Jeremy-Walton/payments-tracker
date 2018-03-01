@@ -2,7 +2,7 @@ nav aria-label='breadcrumb'
   ol.breadcrumb
     li.breadcrumb-item
       = link_to 'Accounts', payment_accounts_url
-    li.breadcrumb-item.active aria-current='page' New Account
+    li.breadcrumb-item.active aria-current='page' Edit Account
 
 .container
   = form_for @payment_account, html: { class: 'needs-validation', novalidate: 'true' } do |f|
