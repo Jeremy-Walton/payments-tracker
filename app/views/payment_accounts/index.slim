@@ -17,4 +17,4 @@ nav aria-label='breadcrumb'
           .text-right
             .btn-group
               = link_to 'Edit', edit_payment_account_url(account), class: 'btn btn-outline-dark mr-2'
-              = link_to 'Log Payment', root_url, class: 'btn btn-success'
+              = link_to 'Log Payment', new_payment_account_payment_url(account), class: 'btn btn-success'

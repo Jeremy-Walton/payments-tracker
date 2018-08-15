@@ -32,3 +32,7 @@ nav aria-label='breadcrumb'
           = f.submit class: 'btn btn-success'
 
   = javascript_pack_tag 'form-validation'
+
+.container
+  - @payment_account.payments.each do |payment|
+    p = payment.amount
