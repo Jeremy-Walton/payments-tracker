@@ -14,6 +14,7 @@ nav aria-label='breadcrumb'
         .card-body
           h5.card-title #{account.name}: #{account.account_type}
           p.card-text $#{account.amount} per month
+          p.card-text = account.up_to_date?
           .text-right
             .btn-group
               = link_to 'Edit', edit_payment_account_url(account), class: 'btn btn-outline-dark mr-2'

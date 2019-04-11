@@ -6,12 +6,12 @@
         .input-group
           .input-group-prepend
             .input-group-text $
-          = f.number_field :amount, class: 'form-control', placeholder: 'Enter Amount', required: 'true', min: '1', step: '0.01'
+          = f.number_field :amount, class: 'form-control', placeholder: 'Enter Amount', value: @payment_account.amount, required: 'true', min: '1', step: '0.01', autofocus: true
           .invalid-feedback Please provide an amount.
           .valid-feedback Looks good!
       .form-group
         = f.label :date, 'Date'
-        = f.date_field :date, class: 'form-control', placeholder: 'Enter Date', required: 'true'
+        = f.date_field :date, class: 'form-control', placeholder: 'Enter Date', value: Date.today.beginning_of_month, required: 'true'
         .invalid-feedback Please provide a date.
         .valid-feedback Looks good!
 
