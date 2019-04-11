@@ -35,6 +35,18 @@ class PaymentAccountsController < ApplicationController
     end
   end
 
+  def destroy
+    @payment_account = PaymentAccount.find(params[:id])
+
+    if @payment_account.destroy
+      flash[:success] = 'Account deleted'
+      redirect_to payment_accounts_path
+    else
+      flash[:success] = 'Account could not be deleted'
+      render :edit
+    end
+  end
+
   private
 
   def payment_account_params

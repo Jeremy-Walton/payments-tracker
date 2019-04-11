@@ -5,6 +5,7 @@ nav aria-label='breadcrumb'
     li.breadcrumb-item.active aria-current='page' Edit Account
 
 .container
+  .text-right = link_to 'Delete Account', @payment_account, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'
   = render partial: 'form'
 
 .container
