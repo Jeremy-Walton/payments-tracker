@@ -3,7 +3,7 @@ class CreatePaymentAccounts < ActiveRecord::Migration[5.1]
     create_table :payment_accounts do |t|
       t.string :account_type
       t.string :name
-      t.integer :amount
+      t.decimal :amount
       t.integer :day
       t.integer :reminder
 

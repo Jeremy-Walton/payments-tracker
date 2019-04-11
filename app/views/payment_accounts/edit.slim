@@ -5,34 +5,11 @@ nav aria-label='breadcrumb'
     li.breadcrumb-item.active aria-current='page' Edit Account
 
 .container
-  = form_for @payment_account, html: { class: 'needs-validation', novalidate: 'true' } do |f|
-    .form-row
-      .col-md-6.offset-md-3
-        .form-group
-          = f.label :name
-          = f.text_field :name, class: 'form-control', placeholder: 'Enter Name', required: 'true'
-          .invalid-feedback Please provide a name.
-          .valid-feedback Looks good!
-        .form-group
-          = f.label :account_type, 'Category'
-          = f.text_field :account_type, class: 'form-control', placeholder: 'Enter Category', 'aria-describedby': 'categoryHelp', required: 'true'
-          small.form-text.text-muted#categoryHelp e.g. Rent, Netflix, Youtube TV
-          .invalid-feedback Please provide a category.
-          .valid-feedback Looks good!
-        .form-group
-          = f.label :amount
-          .input-group
-            .input-group-prepend
-              .input-group-text $
-            = f.number_field :amount, class: 'form-control', placeholder: 'Enter Amount', required: 'true', min: '1'
-            .invalid-feedback Please provide an amount.
-            .valid-feedback Looks good!
-        .text-right
-          = link_to 'Cancel', payment_accounts_url, class: 'btn btn-link'
-          = f.submit class: 'btn btn-success'
-
-  = javascript_pack_tag 'form-validation'
+  = render partial: 'form'
 
 .container
-  - @payment_account.payments.each do |payment|
-    p = payment.amount
+  h6 Payments
+  = link_to 'Log Payment', new_payment_account_payment_url(@payment_account), class: 'btn btn-success'
+  ul
+    - @payment_account.payments.reverse_each do |payment|
+      li = link_to "$#{payment.amount} payed on #{payment.date.strftime('%B %d, %Y')}", edit_payment_account_payment_path(@payment_account, payment), class: 'card-link'

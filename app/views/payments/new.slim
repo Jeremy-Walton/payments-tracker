@@ -6,24 +6,4 @@ nav aria-label='breadcrumb'
     li.breadcrumb-item.active aria-current='page' New Payment
 
 .container
-  = form_for @payment, url: payment_account_payments_path(@payment_account), html: { class: 'needs-validation', novalidate: 'true' } do |f|
-    .form-row
-      .col-md-6.offset-md-3
-        .form-group
-          = f.label :amount
-          .input-group
-            .input-group-prepend
-              .input-group-text $
-            = f.number_field :amount, class: 'form-control', placeholder: 'Enter Amount', required: 'true', min: '1'
-            .invalid-feedback Please provide an amount.
-            .valid-feedback Looks good!
-        .form-group
-          = f.label :date, 'Date'
-          = f.date_field :date, class: 'form-control', placeholder: 'Enter Date', required: 'true'
-          .invalid-feedback Please provide a date.
-          .valid-feedback Looks good!
-
-        .text-right
-          = link_to 'Cancel', payment_accounts_url, class: 'btn btn-link'
-          = f.submit class: 'btn btn-success'
-  = javascript_pack_tag 'form-validation'
+  = render partial: 'form', locals: { path: payment_account_payments_path(@payment_account) }

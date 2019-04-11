@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20180815220738) do
   create_table "payment_accounts", force: :cascade do |t|
     t.string "account_type"
     t.string "name"
-    t.integer "amount"
+    t.decimal "amount"
     t.integer "day"
     t.integer "reminder"
     t.datetime "created_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema.define(version: 20180815220738) do
 
   create_table "payments", force: :cascade do |t|
     t.datetime "date"
-    t.integer "amount"
+    t.decimal "amount"
     t.bigint "payment_account_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

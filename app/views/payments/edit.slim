@@ -1,0 +1,10 @@
+nav aria-label='breadcrumb'
+  ol.breadcrumb
+    li.breadcrumb-item
+      = link_to 'Accounts', payment_accounts_url
+    li.breadcrumb-item
+      = link_to @payment_account.name, edit_payment_account_url(@payment_account)
+    li.breadcrumb-item.active aria-current='page' Edit Payment
+
+.container
+  = render partial: 'form', locals: { path: payment_account_payment_path(@payment_account) }
