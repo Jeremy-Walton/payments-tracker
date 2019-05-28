@@ -2,7 +2,7 @@
   "name": "payments-tracker",
   "private": true,
   "dependencies": {
-    "@rails/webpacker": "^3.2.2",
+    "@rails/webpacker": "^4.0.4",
     "babel-preset-react": "^6.24.1",
     "bootstrap": "^4.0.0",
     "jquery": "^3.4.0",
@@ -12,6 +12,6 @@
     "react-dom": "^16.2.0"
   },
   "devDependencies": {
-    "webpack-dev-server": "^3.1.11"
+    "webpack-dev-server": "^3.4.1"
   }
 }
